@@ -1,6 +1,12 @@
 const http = require('http');
+const handleRequest= require('./app');
+
+http.createServer(handleRequest).listen(8080, console.log('server is running on your port'));
+/*
+const http = require('http');
 let fs = require('fs');
 const url = require('url');
+
 const server = http.createServer(
     (req, res) => {
         if(req.url == '/'){
@@ -36,4 +42,4 @@ const server = http.createServer(
             })
         }
     }
-).listen(8080);
+).listen(8000); */
