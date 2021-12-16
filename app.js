@@ -1,4 +1,4 @@
-var url = require('url');
+var URL = require('url');
 var fs = require('fs');
 
 const renderHtml=(path, res)=>{
