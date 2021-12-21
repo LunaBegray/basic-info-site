@@ -1,7 +1,35 @@
+const express = require('express');
+const app = express();
+
+const PORT = process.env.PORT || 8080;
+
+app.get('/', (_req,res)=>{
+  res.sendFile(__dirname + '/index.html')
+})
+
+app.get('/about', (_req,res)=>{
+  res.sendFile(__dirname + '/about.html')
+})
+
+app.get('/contact', (_req,res)=>{
+  res.sendFile(__dirname + '/contact.html')
+})
+
+app.get('/404', (_req,res)=>{
+  res.sendFile(__dirname + '/404.html')
+})
+
+app.use((_req, res, _next) => {
+  res.status(404).sendFile(__dirname + '/404.html');
+});
+
+app.listen(PORT, () => console.log('Server running on port: ' + PORT));
+/*
 const http = require('http');
 const handleRequest= require('./app');
 
 http.createServer(handleRequest).listen(8080, console.log('server is running on your port'));
+*/
 /*
 const http = require('http');
 let fs = require('fs');
